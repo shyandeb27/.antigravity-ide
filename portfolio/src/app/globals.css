@@ -187,3 +187,17 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     cursor: none !important;
   }
 }
+
+/* Hide scrollbar utility for horizontal scroll pills on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch callout and tap highlight prevention for crisp app feel */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Check, Copy } from "lucide-react";
+import { X, ExternalLink, Check } from "lucide-react";
 import { Project } from "@/data/projects";
 import ProjectGraphic from "./ProjectGraphic";
 import { soundFx } from "@/utils/audio";
@@ -41,7 +41,7 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
   return (
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-10">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -51,40 +51,41 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
               soundFx.playClick();
               onClose();
             }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-xl"
+            className="fixed inset-0 bg-black/85 backdrop-blur-xl"
           />
 
           {/* Modal Container */}
           <motion.div
-            initial={{ scale: 0.92, opacity: 0, y: 20 }}
+            initial={{ scale: 0.94, opacity: 0, y: 15 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.94, opacity: 0, y: 15 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0a0a14]/95 border border-[#00D9FF]/25 shadow-[0_0_60px_rgba(0,217,255,0.2)] p-6 sm:p-8 z-10 custom-scrollbar"
+            transition={{ type: "spring", damping: 26, stiffness: 320 }}
+            className="relative w-full max-w-4xl max-h-[88vh] overflow-y-auto rounded-2xl bg-[#0a0a14]/95 border border-[#00D9FF]/30 shadow-[0_0_60px_rgba(0,217,255,0.25)] p-4 sm:p-8 z-10 custom-scrollbar"
           >
             {/* Header Cyber Accents */}
-            <div className="flex items-center justify-between border-b border-[#00D9FF]/15 pb-5">
+            <div className="flex items-start justify-between border-b border-[#00D9FF]/15 pb-4 sm:pb-5 gap-3">
               <div>
-                <span className="inline-block text-[11px] font-mono tracking-widest text-[#00D9FF] uppercase mb-1">
+                <span className="inline-block text-[10px] sm:text-[11px] font-mono tracking-widest text-[#00D9FF] uppercase mb-1">
                   {project.categoryTag}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold font-heading text-[#F2F4F8] tracking-tight">
+                <h3 className="text-xl sm:text-3xl font-bold font-heading text-[#F2F4F8] tracking-tight">
                   {project.title}
                 </h3>
-                <div className="flex items-center gap-3 text-xs font-mono text-[#9BA3B0] mt-1">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-mono text-[#9BA3B0] mt-1">
                   <span>CLIENT: {project.client}</span>
                   <span>•</span>
                   <span>YEAR: {project.year}</span>
                 </div>
               </div>
 
-              {/* Close Button */}
+              {/* Close Button (large touch target) */}
               <button
                 onClick={() => {
                   soundFx.playClick();
                   onClose();
                 }}
-                className="w-10 h-10 rounded-full bg-[#050508] border border-[#00D9FF]/30 flex items-center justify-center text-[#9BA3B0] hover:text-[#00D9FF] hover:border-[#00D9FF] hover:shadow-[0_0_15px_rgba(0,217,255,0.3)] transition-all cursor-pointer"
+                aria-label="Close Case Study"
+                className="shrink-0 w-9 sm:w-10 h-9 sm:h-10 rounded-full bg-[#050508] border border-[#00D9FF]/30 flex items-center justify-center text-[#9BA3B0] hover:text-[#00D9FF] hover:border-[#00D9FF] hover:shadow-[0_0_15px_rgba(0,217,255,0.3)] transition-all cursor-pointer"
                 data-cursor="hover"
                 data-cursor-text="CLOSE"
               >
@@ -93,34 +94,34 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
             </div>
 
             {/* Visual Artwork Showcase */}
-            <div className="my-6 w-full h-64 sm:h-80 rounded-xl overflow-hidden border border-[#00D9FF]/20 relative shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+            <div className="my-4 sm:my-6 w-full h-48 sm:h-72 md:h-80 rounded-xl overflow-hidden border border-[#00D9FF]/20 relative shadow-[0_0_30px_rgba(0,0,0,0.8)]">
               <ProjectGraphic id={project.id} />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded bg-[#050508]/80 border border-[#00D9FF]/20 text-[10px] font-mono text-[#00D9FF] backdrop-blur-md">
+              <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 px-2 sm:px-3 py-0.5 sm:py-1 rounded bg-[#050508]/85 border border-[#00D9FF]/20 text-[9px] sm:text-[10px] font-mono text-[#00D9FF] backdrop-blur-md">
                 DIRECTOR CUT // MASTER SPEC
               </div>
             </div>
 
             {/* Content Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 pt-1 sm:pt-2">
               {/* Left Column: Narrative */}
               <div className="md:col-span-2 space-y-4">
                 <div>
-                  <h4 className="text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-2">
+                  <h4 className="text-[11px] sm:text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-1.5 sm:mb-2">
                     // ART DIRECTION & ARCHITECTURE
                   </h4>
-                  <p className="text-sm sm:text-base text-[#9BA3B0] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#9BA3B0] leading-relaxed">
                     {project.fullDesc}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-2">
+                  <h4 className="text-[11px] sm:text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-1.5 sm:mb-2">
                     // KEY DELIVERABLES
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {project.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-[#F2F4F8]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] shadow-[0_0_6px_#00D9FF]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] shadow-[0_0_6px_#00D9FF] shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -129,13 +130,13 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
               </div>
 
               {/* Right Column: Specifications */}
-              <div className="space-y-5 rounded-xl bg-[#050508]/60 border border-[#00D9FF]/15 p-4 sm:p-5">
+              <div className="space-y-4 sm:space-y-5 rounded-xl bg-[#050508]/60 border border-[#00D9FF]/15 p-4 sm:p-5">
                 {/* Color Palette */}
                 <div>
-                  <h5 className="text-[11px] font-mono tracking-wider text-[#9BA3B0] mb-2 uppercase">
+                  <h5 className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#9BA3B0] mb-2 uppercase">
                     Color Architecture
                   </h5>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
                     {project.palette.map((color, idx) => (
                       <button
                         key={idx}
@@ -144,14 +145,14 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
                         title={`Copy ${color}`}
                       >
                         <div
-                          className="w-full h-10 rounded-md border border-white/10 group-hover:scale-105 transition-transform flex items-center justify-center"
+                          className="w-full h-8 sm:h-10 rounded-md border border-white/10 group-hover:scale-105 active:scale-95 transition-transform flex items-center justify-center"
                           style={{ backgroundColor: color }}
                         >
                           {copiedColor === color && (
-                            <Check size={14} className="text-white drop-shadow" />
+                            <Check size={13} className="text-white drop-shadow" />
                           )}
                         </div>
-                        <span className="text-[9px] font-mono text-[#9BA3B0] mt-1 group-hover:text-[#00D9FF]">
+                        <span className="text-[8px] sm:text-[9px] font-mono text-[#9BA3B0] mt-1 group-hover:text-[#00D9FF]">
                           {color}
                         </span>
                       </button>
@@ -161,7 +162,7 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
 
                 {/* Typography Spec */}
                 <div className="border-t border-[#00D9FF]/10 pt-3">
-                  <h5 className="text-[11px] font-mono tracking-wider text-[#9BA3B0] uppercase mb-1">
+                  <h5 className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#9BA3B0] uppercase mb-1">
                     Primary Typography
                   </h5>
                   <p className="text-xs font-mono text-[#00D9FF]">
@@ -171,7 +172,7 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
 
                 {/* Impact Metric */}
                 <div className="border-t border-[#00D9FF]/10 pt-3">
-                  <h5 className="text-[11px] font-mono tracking-wider text-[#9BA3B0] uppercase mb-1">
+                  <h5 className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#9BA3B0] uppercase mb-1">
                     Validation Index
                   </h5>
                   <p className="text-xs font-mono font-bold text-[#F2F4F8] flex items-center gap-1.5">

@@ -64,20 +64,20 @@ export default function TestimonialsSection() {
   const t = testimonials[currentIndex];
 
   return (
-    <section id="reviews" className="relative py-28 px-4 sm:px-8 border-t border-[#00D9FF]/10 overflow-hidden">
+    <section id="reviews" className="relative py-16 sm:py-28 px-4 sm:px-8 border-t border-[#00D9FF]/10 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 -right-48 w-96 h-96 bg-[#0066FF]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="w-full max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-16">
           <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#0a0a14] border border-[#00D9FF]/20 text-[10px] font-mono text-[#00D9FF] mb-3">
             <span>// 04. TRANSMISSIONS & TESTIMONIALS</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-heading tracking-tight text-[#F2F4F8]">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#F2F4F8]">
             VOICES OF <span className="text-[#00D9FF] glow-cyan-text">VISIONARIES</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#9BA3B0] max-w-xl">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#9BA3B0] max-w-xl">
             Feedback from leaders, directors, and founders at the forefront of digital reality.
           </p>
         </div>
@@ -90,60 +90,60 @@ export default function TestimonialsSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4 }}
-              className="glass-panel p-8 sm:p-12 rounded-3xl border border-[#00D9FF]/20 bg-[#0a0a14]/80 shadow-[0_0_50px_rgba(0,0,0,0.8)] relative"
+              transition={{ duration: 0.35 }}
+              className="glass-panel p-5 sm:p-12 rounded-3xl border border-[#00D9FF]/20 bg-[#0a0a14]/85 shadow-[0_0_50px_rgba(0,0,0,0.8)] relative"
             >
               {/* Glowing Quote Icon */}
-              <div className="w-12 h-12 rounded-2xl bg-[#00D9FF]/10 border border-[#00D9FF]/30 flex items-center justify-center text-[#00D9FF] mb-6">
-                <Quote size={22} />
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-2xl bg-[#00D9FF]/10 border border-[#00D9FF]/30 flex items-center justify-center text-[#00D9FF] mb-4 sm:mb-6">
+                <Quote size={20} />
               </div>
 
               {/* Tag & Stars */}
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                <span className="text-[10px] font-mono tracking-widest text-[#00D9FF] uppercase px-2.5 py-1 rounded bg-[#050508] border border-[#00D9FF]/20">
+              <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-[#00D9FF] uppercase px-2.5 py-1 rounded bg-[#050508] border border-[#00D9FF]/20">
                   {t.tag}
                 </span>
 
                 <div className="flex items-center gap-1 text-[#00D9FF]">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={14} fill="#00D9FF" />
+                    <Star key={i} size={13} fill="#00D9FF" />
                   ))}
                 </div>
               </div>
 
               {/* Quote Text */}
-              <p className="text-lg sm:text-2xl text-[#F2F4F8] font-heading font-normal leading-relaxed mb-8">
+              <p className="text-base sm:text-xl md:text-2xl text-[#F2F4F8] font-heading font-normal leading-relaxed mb-6 sm:mb-8">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               {/* Client Info */}
-              <div className="flex items-center justify-between border-t border-[#00D9FF]/15 pt-6">
-                <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#00D9FF]/15 pt-4 sm:pt-6 gap-3 sm:gap-0">
+                <div className="flex items-center gap-3 sm:gap-4">
                   {/* Holographic Initials Avatar */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00D9FF]/20 to-[#0066FF]/20 border border-[#00D9FF]/40 flex items-center justify-center font-heading font-black text-sm text-[#00D9FF] shadow-[0_0_15px_rgba(0,217,255,0.2)]">
+                  <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-gradient-to-br from-[#00D9FF]/20 to-[#0066FF]/20 border border-[#00D9FF]/40 flex items-center justify-center font-heading font-black text-xs sm:text-sm text-[#00D9FF] shadow-[0_0_15px_rgba(0,217,255,0.2)] shrink-0">
                     {t.avatarInitials}
                   </div>
 
                   <div>
-                    <h4 className="text-base font-bold font-heading text-[#F2F4F8] flex items-center gap-1.5">
+                    <h4 className="text-sm sm:text-base font-bold font-heading text-[#F2F4F8] flex items-center gap-1.5">
                       <span>{t.name}</span>
-                      <ShieldCheck size={16} className="text-[#00D9FF]" aria-label="Verified Client" />
+                      <ShieldCheck size={15} className="text-[#00D9FF]" aria-label="Verified Client" />
                     </h4>
-                    <p className="text-xs font-mono text-[#9BA3B0]">
+                    <p className="text-[11px] sm:text-xs font-mono text-[#9BA3B0]">
                       {t.role} // <span className="text-[#00D9FF]">{t.company}</span>
                     </p>
                   </div>
                 </div>
 
-                <div className="hidden sm:block text-[10px] font-mono text-[#9BA3B0]">
+                <div className="text-[9px] sm:text-[10px] font-mono text-[#9BA3B0]">
                   VERIFIED TRANSMISSION
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Controls: Prev / Next Buttons */}
-          <div className="flex items-center justify-between mt-8">
+          {/* Controls: Prev / Next Buttons with touch-accessible targets */}
+          <div className="flex items-center justify-between mt-6 sm:mt-8">
             <div className="flex items-center gap-2">
               {testimonials.map((_, idx) => (
                 <button
@@ -155,7 +155,7 @@ export default function TestimonialsSection() {
                   className={`h-1.5 rounded-full transition-all cursor-pointer ${
                     currentIndex === idx
                       ? "w-8 bg-[#00D9FF] shadow-[0_0_8px_#00D9FF]"
-                      : "w-2 bg-white/20 hover:bg-white/40"
+                      : "w-2.5 bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                   data-cursor="hover"
@@ -163,10 +163,10 @@ export default function TestimonialsSection() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={handlePrev}
-                className="w-10 h-10 rounded-full bg-[#0a0a14] border border-[#00D9FF]/25 hover:border-[#00D9FF] hover:bg-[#00D9FF]/10 text-[#9BA3B0] hover:text-[#00D9FF] flex items-center justify-center transition-all cursor-pointer"
+                className="w-11 h-11 rounded-full bg-[#0a0a14] border border-[#00D9FF]/25 hover:border-[#00D9FF] active:bg-[#00D9FF]/20 hover:bg-[#00D9FF]/10 text-[#9BA3B0] hover:text-[#00D9FF] flex items-center justify-center transition-all cursor-pointer"
                 aria-label="Previous testimonial"
                 data-cursor="hover"
                 data-cursor-text="PREV"
@@ -175,7 +175,7 @@ export default function TestimonialsSection() {
               </button>
               <button
                 onClick={handleNext}
-                className="w-10 h-10 rounded-full bg-[#0a0a14] border border-[#00D9FF]/25 hover:border-[#00D9FF] hover:bg-[#00D9FF]/10 text-[#9BA3B0] hover:text-[#00D9FF] flex items-center justify-center transition-all cursor-pointer"
+                className="w-11 h-11 rounded-full bg-[#0a0a14] border border-[#00D9FF]/25 hover:border-[#00D9FF] active:bg-[#00D9FF]/20 hover:bg-[#00D9FF]/10 text-[#9BA3B0] hover:text-[#00D9FF] flex items-center justify-center transition-all cursor-pointer"
                 aria-label="Next testimonial"
                 data-cursor="hover"
                 data-cursor-text="NEXT"

@@ -8,9 +8,7 @@ import {
   Box, 
   Video, 
   Radio, 
-  Zap, 
   Sparkles,
-  Layers,
   Code
 } from "lucide-react";
 
@@ -104,34 +102,34 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="relative py-28 px-4 sm:px-8 border-t border-[#00D9FF]/10 overflow-hidden">
+    <section id="skills" className="relative py-16 sm:py-28 px-4 sm:px-8 border-t border-[#00D9FF]/10 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-radial-glow pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col items-start mb-16">
+        <div className="flex flex-col items-start mb-10 sm:mb-16">
           <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#0a0a14] border border-[#00D9FF]/20 text-[10px] font-mono text-[#00D9FF] mb-3">
             <span>// 03. TOOL MATRIX & PROFICIENCIES</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-heading tracking-tight text-[#F2F4F8]">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#F2F4F8]">
             THE <span className="text-[#00D9FF] glow-cyan-text">CREATIVE ARSENAL</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#9BA3B0] max-w-2xl">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#9BA3B0] max-w-2xl">
             A battle-tested stack of industry-standard creative suites, 3D engines,
             and computational generative pipelines.
           </p>
         </div>
 
         {/* Infinite Scrolling Marquee Ribbon */}
-        <div className="relative w-full overflow-hidden py-4 mb-20 border-y border-[#00D9FF]/20 bg-[#0a0a14]/60 backdrop-blur-md">
+        <div className="relative w-full overflow-hidden py-3 sm:py-4 mb-12 sm:mb-20 border-y border-[#00D9FF]/20 bg-[#0a0a14]/60 backdrop-blur-md">
           {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050508] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050508] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#050508] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#050508] to-transparent z-10 pointer-events-none" />
 
-          <div className="animate-marquee flex items-center gap-8 whitespace-nowrap">
+          <div className="animate-marquee flex items-center gap-6 sm:gap-8 whitespace-nowrap">
             {[...marqueeItems, ...marqueeItems].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 text-xs font-mono font-bold tracking-widest text-[#F2F4F8] hover:text-[#00D9FF] transition-colors select-none">
+              <div key={idx} className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs font-mono font-bold tracking-widest text-[#F2F4F8] hover:text-[#00D9FF] transition-colors select-none">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] shadow-[0_0_6px_#00D9FF]" />
                 <span>{item}</span>
               </div>
@@ -140,24 +138,24 @@ export default function SkillsSection() {
         </div>
 
         {/* Two-Column Grid: Tools Matrix (Left) + Domain Proficiency Bars (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left: 6 Tool Cards (7 cols) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {tools.map((tool, idx) => {
               const Icon = tool.icon;
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="glass-panel p-5 rounded-2xl border border-[#00D9FF]/15 hover:border-[#00D9FF]/40 bg-[#0a0a14]/70 hover:bg-[#0e0e1e]/90 transition-all duration-300 group"
+                  transition={{ duration: 0.4, delay: idx * 0.06 }}
+                  className="glass-panel p-4 sm:p-5 rounded-2xl border border-[#00D9FF]/15 hover:border-[#00D9FF]/40 bg-[#0a0a14]/70 hover:bg-[#0e0e1e]/90 transition-all duration-300 group"
                   data-cursor="hover"
                 >
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-all group-hover:scale-110"
+                      className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl flex items-center justify-center transition-all group-hover:scale-110"
                       style={{
                         backgroundColor: `${tool.accent}15`,
                         border: `1px solid ${tool.accent}40`,
@@ -171,10 +169,10 @@ export default function SkillsSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold font-heading text-[#F2F4F8] group-hover:text-[#00D9FF] transition-colors">
+                  <h3 className="text-sm sm:text-base font-bold font-heading text-[#F2F4F8] group-hover:text-[#00D9FF] transition-colors">
                     {tool.name}
                   </h3>
-                  <div className="text-[10px] font-mono text-[#00D9FF] tracking-wider uppercase mb-2">
+                  <div className="text-[10px] font-mono text-[#00D9FF] tracking-wider uppercase mb-1.5 sm:mb-2">
                     {tool.role}
                   </div>
                   <p className="text-xs text-[#9BA3B0] leading-relaxed">
@@ -182,7 +180,7 @@ export default function SkillsSection() {
                   </p>
 
                   {/* Micro Progress Bar */}
-                  <div className="w-full h-1 bg-[#050508] rounded-full mt-4 overflow-hidden">
+                  <div className="w-full h-1 bg-[#050508] rounded-full mt-3 sm:mt-4 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${tool.proficiency}%` }}
@@ -198,14 +196,14 @@ export default function SkillsSection() {
           </div>
 
           {/* Right: Domain Specializations & Technical Capabilities (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="glass-panel p-6 rounded-2xl border border-[#00D9FF]/15 bg-[#0a0a14]/70">
-              <h3 className="text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-6 flex items-center gap-2">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
+            <div className="glass-panel p-5 sm:p-6 rounded-2xl border border-[#00D9FF]/15 bg-[#0a0a14]/70">
+              <h3 className="text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-4 sm:mb-6 flex items-center gap-2">
                 <Sparkles size={14} />
                 <span>DOMAIN COMPETENCY INDEX</span>
               </h3>
 
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 {domains.map((dom, idx) => (
                   <div key={idx} className="space-y-1.5">
                     <div className="flex justify-between text-xs font-mono">
@@ -217,7 +215,7 @@ export default function SkillsSection() {
                         initial={{ width: 0 }}
                         whileInView={{ width: `${dom.level}%` }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1.2, delay: idx * 0.1 }}
+                        transition={{ duration: 1.2, delay: idx * 0.08 }}
                         className="h-full bg-gradient-to-r from-[#0066FF] to-[#00D9FF] rounded-full shadow-[0_0_8px_rgba(0,217,255,0.5)]"
                       />
                     </div>
@@ -227,13 +225,13 @@ export default function SkillsSection() {
             </div>
 
             {/* Specialized badges box */}
-            <div className="glass-panel p-6 rounded-2xl border border-[#00D9FF]/15 bg-[#0a0a14]/70">
-              <h3 className="text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-4 flex items-center gap-2">
+            <div className="glass-panel p-5 sm:p-6 rounded-2xl border border-[#00D9FF]/15 bg-[#0a0a14]/70">
+              <h3 className="text-xs font-mono tracking-widest text-[#00D9FF] uppercase mb-3 sm:mb-4 flex items-center gap-2">
                 <Code size={14} />
                 <span>TECHNICAL CAPABILITIES</span>
               </h3>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {[
                   "Octane Render",
                   "Redshift 3D",
@@ -247,7 +245,7 @@ export default function SkillsSection() {
                 ].map((badge, idx) => (
                   <span
                     key={idx}
-                    className="px-2.5 py-1 rounded-md bg-[#050508] border border-[#00D9FF]/20 text-[10px] font-mono text-[#9BA3B0] hover:text-[#00D9FF] hover:border-[#00D9FF]/50 transition-colors"
+                    className="px-2.5 py-1 rounded-md bg-[#050508] border border-[#00D9FF]/20 text-[9px] sm:text-[10px] font-mono text-[#9BA3B0] hover:text-[#00D9FF] hover:border-[#00D9FF]/50 transition-colors"
                   >
                     {badge}
                   </span>

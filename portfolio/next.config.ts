@@ -7,9 +7,6 @@ const nextConfig: NextConfig = {
     // Framer Motion generic type strictness — no logic impact
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default nextConfig;
