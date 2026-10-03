@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Terminal } from "lucide-react";
-import InteractiveBear from "./InteractiveBear";
+import Hero3DObject from "./canvas/Hero3DObject";
 import { soundFx } from "@/utils/audio";
 
 export default function HeroSection() {
@@ -138,14 +138,14 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right Column: The Cursor & Touch-Reactive Animated Bear (5 cols) */}
+        {/* Right Column: The Cursor & Touch-Reactive 3D Interactive Object (5 cols) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.3 }}
           className="lg:col-span-5 relative flex items-center justify-center order-1 lg:order-2"
         >
-          <InteractiveBear />
+          <Hero3DObject />
         </motion.div>
       </div>
 
